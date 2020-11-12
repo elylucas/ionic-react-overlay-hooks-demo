@@ -10,10 +10,10 @@ import {
   IonTabs
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { ellipse, square, triangle } from 'ionicons/icons';
-import Tab1 from './pages/Tab1';
-import Tab2 from './pages/Tab2';
-import Tab3 from './pages/Tab3';
+import { addCircleOutline, alarm, alertCircle, calendar, ellipse, logoGoogle, logoIonic, newspaper, square, star, triangle } from 'ionicons/icons';
+import Alert from './pages/Alert';
+import Toast from './pages/Toast';
+import ActionSheet from './pages/ActionSheet';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -33,29 +33,53 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import Modal from './pages/Modal';
+import Popover from './pages/Popover';
+import Picker from './pages/Picker';
+import Loading from './pages/Loading';
 
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
-          <Route path="/tab1" component={Tab1} exact={true} />
-          <Route path="/tab2" component={Tab2} exact={true} />
-          <Route path="/tab3" component={Tab3} />
+          <Route path="/alert" component={Alert} exact={true} />
+          <Route path="/toast" component={Toast} exact={true} />
+          <Route path="/actionsheet" component={ActionSheet} />
+          <Route path="/modal" component={Modal} />
+          <Route path="/popover" component={Popover} />
+          <Route path="/picker" component={Picker} />
+          <Route path="/loading" component={Loading} />
           <Route path="/" render={() => <Redirect to="/tab1" />} exact={true} />
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
-          <IonTabButton tab="tab1" href="/tab1">
-            <IonIcon icon={triangle} />
-            <IonLabel>Tab 1</IonLabel>
+          <IonTabButton tab="alert" href="/alert">
+            <IonIcon icon={alertCircle} />
+            <IonLabel>Alert</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="tab2" href="/tab2">
-            <IonIcon icon={ellipse} />
-            <IonLabel>Tab 2</IonLabel>
+          <IonTabButton tab="toast" href="/toast">
+            <IonIcon icon={alarm} />
+            <IonLabel>Toast</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="tab3" href="/tab3">
-            <IonIcon icon={square} />
-            <IonLabel>Tab 3</IonLabel>
+          <IonTabButton tab="actionsheet" href="/actionsheet">
+            <IonIcon icon={newspaper} />
+            <IonLabel>ActionSheet</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="modal" href="/modal">
+            <IonIcon icon={star} />
+            <IonLabel>Modal</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="popover" href="/popover">
+            <IonIcon icon={logoGoogle} />
+            <IonLabel>Popover</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="picker" href="/picker">
+            <IonIcon icon={logoIonic} />
+            <IonLabel>Picker</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="loading" href="/loading">
+            <IonIcon icon={addCircleOutline} />
+            <IonLabel>Loading</IonLabel>
           </IonTabButton>
         </IonTabBar>
       </IonTabs>
